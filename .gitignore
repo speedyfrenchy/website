@@ -1,3 +1,6 @@
 # Gitignore for the website project
 
+# Ignore temp files
 *~
+
+
