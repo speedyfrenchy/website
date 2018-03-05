@@ -3,4 +3,11 @@
 # Ignore temp files
 *~
 
+# Ignore virtual environment
+venv
 
+# Ignore IDE misc
+.idea/*
+
+# Ignore python misc
+*.pyc
