@@ -1,21 +1,23 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Blog</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex">
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/blog.min.css') }}" />
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/hilite.css') }}" />
-    {% block extra_head %}{% endblock %}
-    <script src="{{ url_for('static', filename='js/jquery-1.11.0.min.js') }}" type="text/javascript"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    {% block extra_scripts %}{% endblock %}
-  </head>
+{% extends 'bootstrap/base.html' %}
 
-  <body>
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
+{% block title %}
+    <head>
+        <title>Blog</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/blog.min.css') }}" />
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/hilite.css') }}" />
+        {% block extra_head %}{% endblock %}
+        <script src="{{ url_for('static', filename='js/jquery-1.11.0.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        {% block extra_scripts %}{% endblock %}
+    </head>
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -44,8 +46,10 @@
           {% endblock %}
         </div>
       </div>
-    </div>
+    </nav>
+{% endblock %}
 
+{% block content %}
     <div class="container">
       {% for category, message in get_flashed_messages(with_categories=true) %}
         <div class="alert alert-{{ category }} alert-dismissable">
@@ -54,18 +58,8 @@
         </div>
       {% endfor %}
 
-      {% block page_header %}
-        <div class="page-header">
-          <h1>{% block content_title %}{% endblock %}</h1>
-        </div>
-      {% endblock %}
-
-      {% block content %}{% endblock %}
-
-      <footer>
-        <hr />
-        <p>Blog, &copy; 2015</p>
-      </footer>
+      {% block app_content_title %}{% endblock %}
+      {# application content needs to be provided in the app_content block #}
+      {% block app_content %}{% endblock %}
     </div>
-  </body>
-</html>
+{% endblock %}

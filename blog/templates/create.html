@@ -2,9 +2,9 @@
 
 {% block title %}Create post{% endblock %}
 
-{% block content_title %}Create post{% endblock %}
+{% block app_content_title %}Create post{% endblock %}
 
-{% block content %}
+{% block app_content %}
   <form action="{% block form_action %}{{ url_for('create') }}{% endblock %}" class="form-horizontal" method="post">
     <div class="form-group">
       <label for="title" class="col-sm-2 control-label">Title</label>

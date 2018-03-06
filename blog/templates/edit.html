@@ -4,7 +4,7 @@
 
 {% block content_title %}Edit post{% endblock %}
 
-{% block content %}
+{% block app_content %}
   <form action="{{ url_for('edit', slug=post.slug) }}" class="form-horizontal" method="post">
     <div class="form-group">
       <label for="title" class="col-sm-2 control-label">Title</label>

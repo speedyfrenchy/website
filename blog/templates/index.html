@@ -2,9 +2,9 @@
 
 {% block title %}Blog entries{% endblock %}
 
-{% block content_title %}{% if search %}Search "{{ search }}"{% else %}Blog posts{% endif %}{% endblock %}
+{% block app_content_title %}{% if search %}Search "{{ search }}"{% else %}Blog posts{% endif %}{% endblock %}
 
-{% block content %}
+{% block app_content %}
   {% for post in object_list %}
     {% if search %}
       {% set post = post.post %}
