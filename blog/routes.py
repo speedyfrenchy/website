@@ -15,7 +15,12 @@ from .models import Post, FTSPost
 
 @blog.errorhandler(404)
 def not_found(exc):
-    return Response('<h3>NO</h3>'), 404
+    return render_template('404.html'), 404
+
+
+@blog.errorhandler(500)
+def server_error(exc):
+    return render_template('500.html'), 500
 
 
 @blog.template_filter('clean_querystring')
