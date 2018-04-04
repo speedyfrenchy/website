@@ -14,7 +14,7 @@
         {{ post.title }}
       </a>
     </h3>
-    <p>Created {{ post.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
+    <p>Created on {{ post.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
   {% endfor %}
   {% include "includes/pagination.html" %}
 {% endblock %}
