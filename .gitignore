@@ -11,3 +11,6 @@ venv
 
 # Ignore python misc
 *.pyc
+
+# Ignore compiled CSS files
+blog/static/css
