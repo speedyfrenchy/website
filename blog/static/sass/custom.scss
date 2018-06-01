@@ -1,34 +1,19 @@
-/* Palette 1
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
 $dark_navy: rgba(13, 31, 45, 1);
 $mid_blue: rgba(8, 76, 97, 1);
 $teal: rgba(55, 147, 146, 1);
 $mid_grey: rgba(139, 148, 163, 1);
 $light_blue: rgba(213, 223, 229, 1);
 
- Palette 2
+
 $light-grey: rgba(235, 238, 240, 1);
 $light-steel: rgba(135, 163, 175, 1);
 $dark-steel: rgba(81, 118, 135, 1);
 $grey: rgba(66, 87, 96, 1);
 $graphite: rgba(35, 45, 51, 1);
-*/
 
-.navbar .nav > li > a{
-  color: #FFF;
-}
-
-.navbar-default .navbar-brand {
-  color: #FFF;
-}
-
-.navbar-default {
-  background-color: rgba(35, 45, 51, 1);
-  color: #FFF;
-  border-radius: 0px;
-}
-
-
-body {
-  color: #FFF;
-  background-color: rgba(35, 45, 51, 1);
-}
+$body-bg: #F00;
+$body-color: #0F0;
