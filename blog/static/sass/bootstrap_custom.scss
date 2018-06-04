@@ -15,14 +15,18 @@ $red: #F00;
 
 $theme-colors: ();
 $theme-colors: map-merge((
-  "primary":    $red,
+  "primary":    $light-steel,
   "secondary":  $mid_blue,
   "success":    $teal,
   "info":       $mid_grey,
   "warning":    $light_blue,
   "danger":     $light-grey,
   "light":      $graphite,
-  "dark":       $dark-steel
+  "dark":       $red
 ), $theme-colors);
+
+$body-bg: $graphite;
+$body-color: $light-grey;
+$hr-border-color: $light-steel;
 
 @import "../bootstrap/scss/bootstrap";

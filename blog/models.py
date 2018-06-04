@@ -12,6 +12,7 @@ from playhouse.flask_utils import FlaskDB, get_object_or_404, object_list
 from playhouse.sqlite_ext import *
 from blog import flask_db, database, oembed_providers, blog
 
+
 class Post(flask_db.Model):
     title = CharField()
     slug = CharField(unique=True)
