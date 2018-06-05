@@ -76,6 +76,7 @@ def drafts():
     query = Post.drafts().order_by(Post.timestamp.desc())
     return object_list('index.html', query)
 
+
 @blog.route('/<slug>/')
 def detail(slug):
     if session.get('logged_in'):
@@ -89,6 +90,7 @@ def detail(slug):
 def _create_or_edit(post, template):
     if request.method == 'POST':
         post.title = request.form.get('title') or ''
+        post.image = request.form.get('image') or ''
         post.content = request.form.get('content') or ''
         post.published = request.form.get('published') or False
         if not (post.title and post.content):
@@ -110,10 +112,11 @@ def _create_or_edit(post, template):
 
     return render_template(template, post=post)
 
+
 @blog.route('/create/', methods=['GET', 'POST'])
 @login_required
 def create():
-    return _create_or_edit(Post(title='', content=''), 'create.html')
+    return _create_or_edit(Post(title='', image='', content=''), 'create.html')
 
 
 @blog.route('/<slug>/edit/', methods=['GET', 'POST'])
@@ -123,6 +126,7 @@ def edit(slug):
     if request.method == 'POST':
         if request.form.get('title') and request.form.get('content'):
             post.title = request.form['title']
+            post.image = request.form['image']
             post.content = request.form['content']
             post.published = request.form.get('published') or False
             post.save()

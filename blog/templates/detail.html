@@ -12,6 +12,7 @@
 
 {% block app_content %}
   <p>Created on {{ post.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
-
+  <img src={{ post.image }}>
+  <ul></ul>
   {{ post.html_content }}
 {% endblock %}

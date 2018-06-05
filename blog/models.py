@@ -19,6 +19,7 @@ class Post(flask_db.Model):
     content = TextField()
     published = BooleanField(index=True)
     timestamp = DateTimeField(default=datetime.now, index=True)
+    image = CharField(default='')
 
     def save(self, *args, **kwargs):
         if not self.slug:
