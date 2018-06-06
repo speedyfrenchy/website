@@ -12,10 +12,18 @@ $grey: rgba(66, 87, 96, 1);
 $graphite: rgba(35, 45, 51, 1);
 
 $red: #F00;
+$aurometalsaurus: rgba(107, 118, 124, 1);
+$white-smoke: rgba(249, 244, 245, 1);
+$teal-blue: rgba(70, 129, 137, 1);
+$carrot-orange: rgba(220, 133, 31, 1);
+$ruby: rgba(139, 30, 63, 1);
+$moonstone: rgba(110, 171, 184, 1);
+$dark-smoke: rgba(182, 178, 179, 1);
+$black-coral: rgba(79, 98, 114, 1);
 
 $theme-colors: ();
 $theme-colors: map-merge((
-  "primary":    $light-steel,
+  "primary":    $white-smoke,
   "secondary":  $mid_blue,
   "success":    $teal,
   "info":       $mid_grey,
@@ -26,7 +34,8 @@ $theme-colors: map-merge((
 ), $theme-colors);
 
 $body-bg: $graphite;
-$body-color: $light-grey;
-$hr-border-color: $light-steel;
+$body-color: $dark-smoke;
+$hr-border-color: theme-color("primary");
+
 
 @import "../bootstrap/scss/bootstrap";

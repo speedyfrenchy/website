@@ -2,7 +2,10 @@
 
 {% block title %}Blog entries{% endblock %}
 
-{% block app_content_title %}{% if search %}Search "{{ search }}"{% else %}Blog posts{% endif %}{% endblock %}
+{% block app_content_title %}
+<h1>{% if search %}Search "{{ search }}"{% else %}Blog posts{% endif %}</h1>
+<ul></ul>
+{% endblock %}
 
 {% block app_content %}
   {% for post in object_list %}
@@ -16,7 +19,7 @@
         <img src={{ post.image }}>
       </a>
     </h3>
-    <p>Created on {{ post.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
+    <p>{{ post.timestamp.strftime('%m/%d/%Y') }}</p>
   {% endfor %}
   {% include "includes/pagination.html" %}
 {% endblock %}

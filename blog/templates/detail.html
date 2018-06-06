@@ -2,7 +2,9 @@
 
 {% block title %}{{ post.title }}{% endblock %}
 
-{% block app_content_title %}{{ post.title }}{% endblock %}
+{% block app_content_title %}
+  <h1>{{ post.title }}</h1>
+{% endblock %}
 
 {% block extra_header %}
   {% if session.logged_in %}
@@ -11,7 +13,7 @@
 {% endblock %}
 
 {% block app_content %}
-  <p>Created on {{ post.timestamp.strftime('%m/%d/%Y at %G:%I%p') }}</p>
+  <p>{{ post.timestamp.strftime('%m/%d/%Y') }}</p>
   <img src={{ post.image }}>
   <ul></ul>
   {{ post.html_content }}
