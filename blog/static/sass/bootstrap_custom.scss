@@ -35,7 +35,21 @@ $theme-colors: map-merge((
 
 $body-bg: $graphite;
 $body-color: $dark-smoke;
-$hr-border-color: theme-color("primary");
+$hr-border-color: $dark-smoke;
+$headings-color: $white-smoke;
 
+$spacer: 2rem;
+
+$font-family-sans-serif:      Roboto;
+$font-family-monospace:       Consolas;
+$font-family-base:            $font-family-sans-serif;
+
+$font-size-base: 1.1rem;
+
+$font-weight-light:           200;
+$font-weight-normal:          300;
+$font-weight-bold:            400;
+
+h3, .h3 { color: $dark-smoke; }
 
 @import "../bootstrap/scss/bootstrap";

@@ -14,6 +14,7 @@
 
 {% block app_content %}
   <p>{{ post.timestamp.strftime('%m/%d/%Y') }}</p>
+  <hr />
   <img src={{ post.image }}>
   <ul></ul>
   {{ post.html_content }}
