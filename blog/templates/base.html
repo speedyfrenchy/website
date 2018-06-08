@@ -39,6 +39,7 @@
             {% endif %}
             {% block extra_header %}{% endblock %}
           </ul>
+        </div>
           {% block search_bar %}
             <form action="{{ url_for('index') }}" class="navbar-form navbar-right" id="search-form" method="get" role="search">
               <div class="form-group">
@@ -46,7 +47,6 @@
               </div>
             </form>
           {% endblock %}
-        </div>
       </div>
     </nav>
 {% endblock %}
