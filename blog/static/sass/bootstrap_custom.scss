@@ -50,6 +50,11 @@ $font-weight-light:           200;
 $font-weight-normal:          300;
 $font-weight-bold:            400;
 
-h3, .h3 { color: $dark-smoke; }
+$input-color: $dark-smoke;
+$input-bg: $graphite;
+
+
+$form-group-margin-bottom: 0;
+
 
 @import "../bootstrap/scss/bootstrap";
