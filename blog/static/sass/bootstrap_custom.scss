@@ -56,4 +56,9 @@ $input-bg: $graphite;
 
 $form-group-margin-bottom: 0;
 
+.navbar-text {
+  color: $dark-smoke;
+  margin-right: 2rem;
+}
+
 @import "../bootstrap/scss/bootstrap";
