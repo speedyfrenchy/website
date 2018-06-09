@@ -140,3 +140,27 @@ def edit(slug):
             flash('Title and Content are required.', 'danger')
 
     return render_template('pages/edit.html', post=post)
+
+
+""" Static page routing """
+
+
+@blog.route('/contact/', methods=['GET'])
+def contact():
+    return render_template('pages/contact.html')
+
+
+@blog.route('/theatre/', methods=['GET'])
+def theatre():
+    return render_template('pages/theatre.html')
+
+
+@blog.route('/software/', methods=['GET'])
+def software():
+    return render_template('pages/software.html')
+
+
+@blog.route('/miniatures/', methods=['GET'])
+def miniatures():
+    return render_template('pages/miniatures.html')
+
