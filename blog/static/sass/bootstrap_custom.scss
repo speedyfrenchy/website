@@ -40,6 +40,7 @@ $headings-color: $white-smoke;
 
 $spacer: 2rem;
 
+
 $font-family-sans-serif:      Verdana;
 $font-family-monospace:       Consolas;
 $font-family-base:            $font-family-sans-serif;
@@ -53,8 +54,6 @@ $font-weight-bold:            400;
 $input-color: $dark-smoke;
 $input-bg: $graphite;
 
-
 $form-group-margin-bottom: 0;
-
 
 @import "../bootstrap/scss/bootstrap";

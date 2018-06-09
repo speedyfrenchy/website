@@ -35,7 +35,7 @@ def index():
         query = Post.search(search_query)
     else:
         query = Post.public().order_by(Post.timestamp.desc())
-    return object_list('index.html', query, search=search_query)
+    return object_list('pages/index.html', query, search=search_query)
 
 
 def login_required(fn):
@@ -59,7 +59,7 @@ def login():
             return redirect(next_url or url_for('index'))
         else:
             flash('Incorrect password.', 'danger')
-    return render_template('login.html', next_url=next_url)
+    return render_template('pages/login.html', next_url=next_url)
 
 
 @blog.route('/logout/', methods=['GET', 'POST'])
@@ -67,14 +67,14 @@ def logout():
     if request.method == 'POST':
         session.clear()
         return redirect(url_for('login'))
-    return render_template('logout.html')
+    return render_template('pages/logout.html')
 
 
 @blog.route('/drafts/')
 @login_required
 def drafts():
     query = Post.drafts().order_by(Post.timestamp.desc())
-    return object_list('index.html', query)
+    return object_list('pages/index.html', query)
 
 
 @blog.route('/<slug>/')
@@ -84,7 +84,7 @@ def detail(slug):
     else:
         query = Post.public()
     post = get_object_or_404(query, Post.slug == slug)
-    return render_template('detail.html', post=post)
+    return render_template('pages/detail.html', post=post)
 
 
 def _create_or_edit(post, template):
@@ -116,7 +116,7 @@ def _create_or_edit(post, template):
 @blog.route('/create/', methods=['GET', 'POST'])
 @login_required
 def create():
-    return _create_or_edit(Post(title='', image='', content=''), 'create.html')
+    return _create_or_edit(Post(title='', image='', content=''), 'pages/create.html')
 
 
 @blog.route('/<slug>/edit/', methods=['GET', 'POST'])
@@ -139,4 +139,4 @@ def edit(slug):
         else:
             flash('Title and Content are required.', 'danger')
 
-    return render_template('edit.html', post=post)
+    return render_template('pages/edit.html', post=post)
