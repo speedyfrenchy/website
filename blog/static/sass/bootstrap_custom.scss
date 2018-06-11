@@ -1,18 +1,7 @@
-$dark_navy: rgba(13, 31, 45, 1);
-$mid_blue: rgba(8, 76, 97, 1);
-$teal: rgba(55, 147, 146, 1);
-$mid_grey: rgba(139, 148, 163, 1);
-$light_blue: rgba(213, 223, 229, 1);
-
-
-$light-grey: rgba(235, 238, 240, 1);
+/* Colour definitions */
 $light-steel: rgba(135, 163, 175, 1);
 $dark-steel: rgba(81, 118, 135, 1);
-$grey: rgba(66, 87, 96, 1);
 $graphite: rgba(35, 45, 51, 1);
-
-$red: #F00;
-$aurometalsaurus: rgba(107, 118, 124, 1);
 $white-smoke: rgba(249, 244, 245, 1);
 $teal-blue: rgba(70, 129, 137, 1);
 $carrot-orange: rgba(220, 133, 31, 1);
@@ -21,40 +10,38 @@ $moonstone: rgba(110, 171, 184, 1);
 $dark-smoke: rgba(182, 178, 179, 1);
 $black-coral: rgba(79, 98, 114, 1);
 
+/* Colour usage */
 $theme-colors: ();
 $theme-colors: map-merge((
   "primary":    $white-smoke,
-  "secondary":  $mid_blue,
-  "success":    $teal,
-  "info":       $mid_grey,
-  "warning":    $light_blue,
-  "danger":     $light-grey,
-  "light":      $graphite,
-  "dark":       $red
+  "secondary":  $dark-smoke,
+  "success":    $teal-blue,
+  "info":       $light-steel,
+  "warning":    $carrot-orange,
+  "danger":     $ruby,
+  "light":      $white-smoke,
+  "dark":       $graphite
 ), $theme-colors);
 
 $body-bg: $graphite;
 $body-color: $dark-smoke;
 $hr-border-color: $dark-smoke;
 $headings-color: $white-smoke;
+$input-color: $dark-smoke;
+$input-bg: $graphite;
 
-$spacer: 2rem;
-
-
+/* Typefaces */
 $font-family-sans-serif:      Verdana;
 $font-family-monospace:       Consolas;
 $font-family-base:            $font-family-sans-serif;
-
 $font-size-base: 1.1rem;
-
 $font-weight-light:           200;
 $font-weight-normal:          300;
 $font-weight-bold:            400;
 
-$input-color: $dark-smoke;
-$input-bg: $graphite;
-
+/* Spacing and miscellaneous */
 $form-group-margin-bottom: 0;
+$spacer: 2rem;
 
 .navbar-text {
   color: $dark-smoke;
