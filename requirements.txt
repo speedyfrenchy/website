@@ -8,7 +8,6 @@ Markdown
 MarkupSafe
 micawber
 peewee
-pkg-resources
 Pygments
 python-dateutil
 python-editor
@@ -17,3 +16,4 @@ Werkzeug
 -e git+git@github.com:jeevcat/flask-bootstrap-4-alpha.git#egg=flask_bootstrap
 libsass
 watchdog
+gunicorn
