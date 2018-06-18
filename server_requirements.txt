@@ -1,0 +1,18 @@
+beautifulsoup4
+click
+Flask
+itsdangerous
+Jinja2
+Mako
+Markdown
+MarkupSafe
+micawber
+peewee
+Pygments
+python-dateutil
+python-editor
+six
+Werkzeug
+-e git+https://github.com/jeevcat/flask-bootstrap-4-alpha.git#egg=flask_bootstrap
+watchdog
+gunicorn
