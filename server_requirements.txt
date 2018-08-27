@@ -16,3 +16,4 @@ Werkzeug
 -e git+https://github.com/jeevcat/flask-bootstrap-4-alpha.git#egg=flask_bootstrap
 watchdog
 gunicorn
+pymysql
