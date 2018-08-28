@@ -3,15 +3,50 @@
 {% block title %}Contact{% endblock %}
 
 {% block app_content_title %}
-  <h1>Contact</h1>
+<h1>Contact</h1>
 {% endblock %}
 
 {% block extra_header %}
 {% endblock %}
 
 {% block app_content %}
-  <hr />
-  Contact me if you want to get in touch about misc.
-  <ul></ul>
-  <hr />
+<hr/>
+Use the contact form below to get in touch:
+
+<form action="{% block form_action %}{{ url_for('contact') }}{% endblock %}" class="form-horizontal" method="post">
+    <div class="form-group" align="center">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            <input class="form-control" id="name" name="name" type="text" value="{{ contact.name }}">
+        </div>
+    </div>
+    <div class="form-group" align="center">
+        <label for="email" class="col-sm-2 control-label">Email Address</label>
+        <div class="col-sm-10">
+            <input class="form-control" id="email" name="email" type="email" value="{{ contact.email }}">
+        </div>
+    </div>
+    <div class="form-group" align="center">
+        <label for="subject" class="col-sm-2 control-label">Subject</label>
+        <div class="col-sm-10">
+            <input class="form-control" id="subject" name="subject" type="text" value="{{ contact.subject }}">
+        </div>
+    </div>
+    <div class="form-group" align="center">
+        <label for="Message" class="col-sm-2 control-label">Message</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" id="message" name="message"
+                      style="height: 300px;">{{ contact.message }}</textarea>
+        </div>
+    </div>
+    <div class="form-group" align="center">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-primary" type="submit">{% block save_button %}Send{% endblock %}</button>
+            <a class="btn btn-default" href="{{ url_for('index') }}">Cancel</a>
+        </div>
+    </div>
+</form>
+
+<ul></ul>
+<hr/>
 {% endblock %}

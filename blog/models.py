@@ -88,3 +88,14 @@ class FTSPost(FTSModel):
 
     class Meta:
         database = database
+
+
+class Contact(object):
+    """ Simple class to make it easy to pass data back into the form
+        (for example, if the POST was rejected because of missing data """
+
+    def __init__(self, name, email, subject, message):
+        self.name = name
+        self.email = email
+        self.subject = subject
+        self.message = message

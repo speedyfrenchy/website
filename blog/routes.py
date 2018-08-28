@@ -5,7 +5,9 @@ from playhouse.flask_utils import FlaskDB, get_object_or_404, object_list
 from playhouse.sqlite_ext import *
 import urllib, functools
 from blog import blog, database, flask_db
-from .models import Post, FTSPost
+from .models import Post
+from .models import FTSPost
+from .models import  Contact
 
 
 @blog.errorhandler(404)
@@ -145,9 +147,24 @@ def edit(slug):
 """ Static page routing """
 
 
-@blog.route('/contact/', methods=['GET'])
+def _send_contact_message(contact, template):
+    if request.method == 'POST':
+        contact.name = request.form.get('name') or ''
+        contact.email = request.form.get('email') or ''
+        contact.subject = request.form.get('subject') or ''
+        contact.message = request.form.get('message') or ''
+        if not (contact.name and contact.email and contact.message):
+            flash('Name, email address and a message are required.', 'danger')
+        else:
+            # TODO: send me an email
+            flash('Your contact request has been sent successfully.', 'success')
+            return redirect(url_for('contact'))
+    return render_template(template, contact=contact)
+
+
+@blog.route('/contact/', methods=['GET', 'POST'])
 def contact():
-    return render_template('pages/contact.html')
+    return _send_contact_message(Contact(name='', email='', subject='', message=''), 'pages/contact.html')
 
 
 @blog.route('/theatre/', methods=['GET'])
