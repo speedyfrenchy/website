@@ -16,4 +16,7 @@ oembed_providers = bootstrap_basic(OEmbedCache())
 
 bootstrap = Bootstrap(blog)
 
+from flask_mail import Mail
+email = Mail(blog)
+
 from blog import routes, models

@@ -4,11 +4,13 @@ from flask import (Flask, abort, flash, Markup, redirect, render_template,
 from playhouse.flask_utils import FlaskDB, get_object_or_404, object_list
 from playhouse.sqlite_ext import *
 import urllib, functools
-from blog import blog, database, flask_db
+from blog import blog, database, flask_db, email
 from .models import Post
 from .models import FTSPost
 from .models import  Contact
-
+from threading import Thread
+from flask_mail import Message
+from .config import Config
 
 @blog.errorhandler(404)
 def not_found(exc):
@@ -147,7 +149,31 @@ def edit(slug):
 """ Static page routing """
 
 
+def send_async_email(app, msg):
+    """ Helper function to send email in separate thread """
+    with app.app_context():
+        print("Sending Asynchronously")
+        email.send(msg)
+        print("Email sent")
+
+
+def send_contact_email(contact):
+    """ Parse a Contact into an email and send it asynchronously"""
+    print("Parsing email")
+    subject = "Website contact request: {}".format(contact.subject)
+    body = "Name: {} \nEmail address: {} \nMessage: {}".format(contact.name, contact.email, contact.message)
+
+    msg = Message(subject, sender=Config.ADMIN_EMAIL, recipients=[Config.ADMIN_EMAIL])
+    msg.body = body
+    
+    thr = Thread(target=send_async_email, args=[blog, msg])
+    thr.start()
+
+
 def _send_contact_message(contact, template):
+    """ If it's a post request, validate it and (if valid) send me and email
+        with the contact forms contents.
+        If it isn't valid, return the same page with hints."""
     if request.method == 'POST':
         contact.name = request.form.get('name') or ''
         contact.email = request.form.get('email') or ''
@@ -156,7 +182,7 @@ def _send_contact_message(contact, template):
         if not (contact.name and contact.email and contact.message):
             flash('Name, email address and a message are required.', 'danger')
         else:
-            # TODO: send me an email
+            send_contact_email(contact)
             flash('Your contact request has been sent successfully.', 'success')
             return redirect(url_for('contact'))
     return render_template(template, contact=contact)

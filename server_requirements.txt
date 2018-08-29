@@ -17,3 +17,4 @@ Werkzeug
 watchdog
 gunicorn
 pymysql
+flask_mail
